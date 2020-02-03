@@ -1,0 +1,6 @@
+name: Pacifica Devel
+type: module
+description: Pacifica Entity Commands.
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9

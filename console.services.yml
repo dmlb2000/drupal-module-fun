@@ -1,0 +1,6 @@
+services:
+  pacifica_devel.pacifica_devel_create_content_type:
+    class: Drupal\pacifica_devel\Command\CreateContentTypeCommand
+    arguments: []
+    tags:
+      - { name: drupal.command }
