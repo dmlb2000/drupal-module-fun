@@ -78,6 +78,20 @@ class CreateContentTypeCommand extends ContainerAwareCommand {
         )
       )
     ), array(
+      'field_name' => $prefix.'_relationships',
+      'entity_type' => 'node',
+      'bundle' => $prefix.'_'.$name,
+      'label' => ucfirst($prefix).' Relationships',
+      'field_storage' => \Drupal\field\Entity\FieldStorageConfig::loadByName('node', $prefix.'_relationships'),
+      'settings' => array(
+        'handler' => 'default:taxonomy_term',
+        'handler_settings' => array(
+          'target_bundles' => array(
+            $prefix.'_relationships' => $prefix.'_relationships'
+          )
+        )
+      )
+    ), array(
       'field_name' => $prefix.'_category',
       'entity_type' => 'node',
       'bundle' => $prefix.'_'.$name,
@@ -164,6 +178,14 @@ class CreateContentTypeCommand extends ContainerAwareCommand {
       'cardinality' => 1
     ), array(
       'field_name' => $prefix.'_tags',
+      'type' => 'entity_reference',
+      'entity_type' => 'node',
+      'settings' => array(
+        'target_type' => 'taxonomy_term'
+      ),
+      'cardinality' => FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED
+    ), array(
+      'field_name' => $prefix.'_relationships',
       'type' => 'entity_reference',
       'entity_type' => 'node',
       'settings' => array(

@@ -4,3 +4,8 @@ services:
     arguments: []
     tags:
       - { name: drupal.command }
+  pacifica_devel.pacifica_devel_create_search_config:
+    class: Drupal\pacifica_devel\Command\CreateSearchConfigCommand
+    arguments: []
+    tags:
+      - { name: drupal.command }
