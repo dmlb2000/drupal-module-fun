@@ -16,6 +16,8 @@
   },
   "license": "LGPL-2.0+",
   "require-dev": {
-    "drupal/console": "^1"
+    "drupal/console": "^1",
+    "drupal/search_api_solr": "^3",
+    "drupal/facets": "^1"
   }
 }
