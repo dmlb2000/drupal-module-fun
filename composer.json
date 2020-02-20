@@ -15,7 +15,7 @@
     "source": "git://git.drupal.org/project/facets.git"
   },
   "license": "LGPL-2.0+",
-  "require-dev": {
+  "require": {
     "drupal/console": "^1",
     "drupal/search_api_solr": "^3",
     "drupal/facets": "^1"
