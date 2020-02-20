@@ -60,6 +60,12 @@ class CreateSearchConfigCommand extends ContainerAwareCommand {
    */
   protected function execute(InputInterface $input, OutputInterface $output) {
     $prefix = $input->getOption('prefix');
+    $this->createSolrServer($prefix);
+    $this->createSolrIndex($prefix);
+    $this->createSearchView($prefix);
+  }
+
+  private function createSolrServer($prefix) {
     \Drupal::configFactory()->getEditable('search_api.server.'.$prefix.'_solr_server')
       ->setData(array(
         'uuid' => \Drupal::service('uuid')->generate(),
@@ -79,6 +85,9 @@ class CreateSearchConfigCommand extends ContainerAwareCommand {
         )
       ))
       ->save();
+  }
+
+  protected function createSolrIndex($prefix) {
     $index_data = array(
       'uuid' => \Drupal::service('uuid')->generate(),
       'id' => $prefix.'_solr_index',
@@ -175,4 +184,20 @@ class CreateSearchConfigCommand extends ContainerAwareCommand {
       ->save();
   }
 
+  protected function createSearchView($prefix) {
+    \Drupal::configFactory()->getEditable('views.view.'.$prefix.'_search')
+      ->setData(array(
+        'uuid' => \Drupal::service('uuid')->generate(),
+        'dependencies' => array(
+          'config' => array('search_api.index.'.$prefix.'_solr_index'),
+          'module' => array('search_api')
+        ),
+        'id' => $prefix.'_search',
+        'label' => ucfirst($prefix).' Search',
+        'module' => 'views',
+        'base_table' => 'search_api_index_'.$prefix.'_solr_index',
+        'base_field' => 'nid'
+      ))
+      ->save();
+  }
 }

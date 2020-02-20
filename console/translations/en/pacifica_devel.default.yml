@@ -3,4 +3,3 @@ help: The <info>pacifica_devel:create:content_type</info> command generates a hi
 options:
     prefix: Content type machine name prefix
     name: Content type machine name
-arguments: {}

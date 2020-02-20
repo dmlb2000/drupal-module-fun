@@ -1,5 +1,4 @@
 description: 'Drupal Console generated command.'
-options: {}
-arguments: {}
-messages:
-    success: 'I am a new generated command.'
+help: The <info>pacifica_devel:create:search_config</info> command generates a highly connected set of content types.
+options:
+    prefix: Content type machine name prefix

@@ -9,3 +9,8 @@ services:
     arguments: []
     tags:
       - { name: drupal.command }
+  pacifica_devel.pacifica_devel_create_display_config:
+    class: Drupal\pacifica_devel\Command\CreateDisplayConfigCommand
+    arguments: []
+    tags:
+      - { name: drupal.command }

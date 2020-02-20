@@ -1,0 +1,21 @@
+{
+  "name": "dmlb2000/pacifica_devel",
+  "description": "The Pacifica Drupal development module.",
+  "type": "drupal-module",
+  "homepage": "https://github.com/dmlb2000/drupal-module-fun",
+  "authors": [
+    {
+      "name": "See all contributors",
+      "homepage": "https://www.drupal.org/node/2348769/committers"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/facets",
+    "irc": "irc://irc.freenode.org/drupal-search-api",
+    "source": "git://git.drupal.org/project/facets.git"
+  },
+  "license": "LGPL-2.0+",
+  "require-dev": {
+    "drupal/console": "^1"
+  }
+}
