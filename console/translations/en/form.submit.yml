@@ -1,0 +1,9 @@
+description: 'Submit a Drupal form.'
+help: 'The <info>form:submit</info> command helps submit a form.'
+options:
+    varsfile: 'File containing the form variables.'
+    formclass: 'String of the form class name.'
+    entityclass: 'String of the entity class name.'
+    operation: 'Form operation to complete.'
+messages:
+    success: 'I am a new generated command.'

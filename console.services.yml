@@ -1,16 +1,6 @@
 services:
-  pacifica_devel.pacifica_devel_create_content_type:
-    class: Drupal\pacifica_devel\Command\CreateContentTypeCommand
-    arguments: []
-    tags:
-      - { name: drupal.command }
-  pacifica_devel.pacifica_devel_create_search_config:
-    class: Drupal\pacifica_devel\Command\CreateSearchConfigCommand
-    arguments: []
-    tags:
-      - { name: drupal.command }
-  pacifica_devel.pacifica_devel_create_display_config:
-    class: Drupal\pacifica_devel\Command\CreateDisplayConfigCommand
+  form_submit:
+    class: Drupal\pacifica_devel\Command\PacificaFormSubmitCommand
     arguments: []
     tags:
       - { name: drupal.command }

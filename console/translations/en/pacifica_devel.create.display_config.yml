@@ -1,4 +1,0 @@
-description: 'Drupal Console generated command.'
-help: The <info>pacifica_devel:create:display_config</info> command generates a highly connected set of content types.
-options:
-    prefix: Content type machine name prefix
