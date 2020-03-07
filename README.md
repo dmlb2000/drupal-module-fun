@@ -12,4 +12,5 @@ drush en pacifica_devel
 
 ```
 drupal -vvv form:submit --formclass='node_type' --entityclass='\Drupal\node\Entity\NodeType' --varsfile=$PWD/web/modules/contrib/pacifica_devel/new_content_type.yml --operation=add
+drupal -vvv form:submit --formclass='node_type' --entityclass='\Drupal\node\Entity\NodeType'  --varsfile=$PWD/web/modules/contrib/pacifica_devel/delete_content_type.yml --operation=Delete --entityid=pacifica_project
 ```

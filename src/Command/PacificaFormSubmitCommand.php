@@ -46,7 +46,12 @@ class PacificaFormSubmitCommand extends ContainerAwareCommand {
         'operation',
         null,
         InputOption::VALUE_REQUIRED,
-        $this->trans('commands.form.submit.options.operation'));
+        $this->trans('commands.form.submit.options.operation'))
+      ->addOption(
+        'entityid',
+        null,
+        InputOption::VALUE_OPTIONAL,
+        $this->trans('commands.form.submit.options.entityid'));
   }
 
   /**
@@ -56,17 +61,22 @@ class PacificaFormSubmitCommand extends ContainerAwareCommand {
     $operation = $input->getOption('operation');
     $formclass = $input->getOption('formclass');
     $entityclass = $input->getOption('entityclass');
+    $entityid = $input->getOption('entityid');
     $varsfile = $input->getOption('varsfile');
     $this->getIo()->info('execute');
     $form_state = new FormState();
     $this->getIo()->info(file_get_contents($varsfile));
     $form_state->setValues(Yaml::decode(file_get_contents($varsfile)));
-    $entity = $entityclass::create();
+    if ($entityid !== null) {
+      $entity = $entityclass::load($entityid);
+    } else {
+      $entity = $entityclass::create();
+    }
     $form = \Drupal::entityTypeManager()->getFormObject($formclass, $operation)->setEntity($entity);
     \Drupal::formBuilder()->submitForm($form, $form_state);
-    $this->getIo()->info(print_r($form_state->getValues(), true));
     $this->getIo()->info(print_r($form_state->getErrors(), true));
     $form_state->getFormObject()->getEntity()->save();
+    $this->getIo()->info("Entity Saved");
   }
 
 }

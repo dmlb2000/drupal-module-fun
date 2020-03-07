@@ -4,6 +4,7 @@ options:
     varsfile: 'File containing the form variables.'
     formclass: 'String of the form class name.'
     entityclass: 'String of the entity class name.'
+    entityid: 'Entity ID to load to use in the form.'
     operation: 'Form operation to complete.'
 messages:
     success: 'I am a new generated command.'
